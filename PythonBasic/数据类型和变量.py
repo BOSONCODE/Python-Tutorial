@@ -4,6 +4,7 @@ python的数据类型有:
 浮点数: float
 布尔型: bool(True, False)
 空值: None
+字符串
 
 python定义一个变量非常简单, 并不需要像C语言之类的 要定义类型
 具体的使用看代码
