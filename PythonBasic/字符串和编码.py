@@ -1,5 +1,6 @@
 '''
 字符串是以单引号'或双引号"括起来的任意文本
+
 I'm "OK"!
 目标:
 1.讲解一下引号的混合使用和转义字符的使用
@@ -23,38 +24,20 @@ print('\\')
 print(r'I\'m "OK"!')
 #output:I\'m "OK"!
 
-''' 编码的问题: 计算机只认识0和1 那么你所看到的文本其实本质上都需要通过某种规则去转换成数字 这就是一个编码的问题
-记住几个常见的编码就行了: ASCII码(1字节, ASCII码表), GB2312(处理中文), 最常用的还是UTF-8 摘自廖雪峰:
-UTF-8编码把一个Unicode字符根据不同的数字大小编码成1-6个字节，常用的英文字母被编码成1个字节，汉字通常是3个字节，
-只有很生僻的字符才会被编码成4-6个字节。如果你要传输的文本包含大量英文字符，用UTF-8编码就能节省空间
 '''
+python的格式化输出
+%d: 整数
+%f: 浮点数
+%s: 字符串
+%x: 十六进制整数
 '''
-这里介绍两个函数 ord(), chr()
-ord是将字符变成整数, chr是将整数变成字符
-'''
-print(ord('A'), chr(65))
-#output: 65, A
-print(ord('中'))
-#output: 20013
+str1 = 'world'
+n = 1000
+#使用 %
+print("hello, %s, today is %d"%(str1, n))
+#output: hello, world, today is 1000
 
-#写个栗子, 字母的大小写互转, 当然这个有库的, 不过我们这里手写
-#'D'-->'d'
-print(chr(ord('a') - ord('A') + ord('D')))
-#output: d
-
-#编码 str.encode(编码方式)， 解码 bytecode.decode(解码方式) 我这里统一用utf-8表示
-str = '中国'
-res = str.encode('utf-8') #用'utf-8'的编码方式来对字符串str进行编码返回字节码
-print(res)
-#output:b'\xe4\xb8\xad\xe5\x9b\xbd'
-revert = res.decode('utf-8') #用'utf-8'的解码方式来对字节码进行解码(翻译)
-print(revert)
-#output:中国
-'''
-res = b'xxxx' 表示字符串的bytes类型
-
-'''
-
-
-
+#使用format 采用从0开始的编号输出 稍微麻烦了点
+print('hello, {0}, today is {1}'.format(str1, n))
+#output: hello, world, today is 1000
 
